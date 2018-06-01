@@ -1,0 +1,21 @@
+package ArrayFunc;
+use Carp qw(croak);
+use Data::Dumper;
+sub unify {
+    my $class = shift;
+    my $input = shift;
+	ref($input) or croak "reference variable needed";
+	my	%hash;
+	foreach my $tmp (@{$input}) {
+		if (exists $hash{$tmp}) {
+			$hash{$tmp}++;
+		} else {
+			$hash{$tmp} = 1;
+		}
+	}
+	my @hash_array = keys %hash;
+	my $ref_new = \@hash_array;
+	return $ref_new;
+}
+# 1 is a signal response to invoking master!
+1;
