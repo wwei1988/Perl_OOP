@@ -34,6 +34,57 @@ sub lsearch {
 	$flag = 0;
 	return $flag;
 }
+#->lindex($target,\@array);
+sub lindex {
+	my $class   = shift;
+    my $input   = shift;
+	my $ref_arr = shift;
+	my $index   = 0;
+	foreach my $tmp (@{$ref_arr}) {
+		if ($tmp eq $input) {
+			return $index;
+		}
+		$index++;
+	}
+}
+#->lrange($BEGIN,$STOP,\@array);
+#0-based indexing
+sub lrange {
+	my $class   = shift;
+    my $BEGIN   = shift;
+	my $STOP    = shift;
+	my $ref_arr = shift;
+	my $index   = 0;
+	my @new_array;
+	foreach my $tmp (@{$ref_arr}) {
+		if ($index >= $BEGIN && $index <= $STOP) {
+			#return $index;
+			push @new_array,$tmp;
+		}
+		$index++;
+	}
+	return \@new_array;
+}
+# ldelete,($BEGIN,$STOP,\@array);
+sub ldelete {
+	my $class   = shift;
+    my $BEGIN   = shift;
+	my $STOP    = shift;
+	my $ref_arr = shift;
+	my $index   = 0;
+	my @new_array;
+	#print "ldelete,$BEGIN,$STOP\n";
+	foreach my $tmp (@{$ref_arr}) {
+		if ($index < $BEGIN || $index > $STOP) {
+			#return $index;
+			#print "debug,$index\n";
+			push @new_array,$tmp;
+		}
+		$index++;
+	}
+	@{$ref_arr}=@new_array;
+	#return \@new_array;
+}
 
 # 1 is a signal response to invoking master!
 1;
