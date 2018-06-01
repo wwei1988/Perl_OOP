@@ -1,3 +1,4 @@
+# ArrayFunc.pm can be saved under ~/lib
 package ArrayFunc;
 use Carp qw(croak);
 use Data::Dumper;
