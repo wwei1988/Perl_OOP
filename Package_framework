@@ -1,6 +1,7 @@
 package ArrayFunc;
 use Carp qw(croak);
 use Data::Dumper;
+# unify is used in uniquify the array which contains the repeated items.
 sub unify {
     my $class = shift;
     my $input = shift;
