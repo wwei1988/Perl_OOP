@@ -19,5 +19,21 @@ sub unify {
 	my $ref_new = \@hash_array;
 	return $ref_new;
 }
+# lsearch can be used in search the certain element in the specified array
+#ArrayFunc->lsearch($target,\@array);
+sub lsearch {
+	my $class   = shift;
+        my $input   = shift;
+	my $ref_arr = shift;
+	my $flag    = 1;
+	foreach my $tmp (@{$ref_arr}) {
+		if ($tmp eq $input) {
+			return $flag;
+		}
+	}
+	$flag = 0;
+	return $flag;
+}
+
 # 1 is a signal response to invoking master!
 1;
