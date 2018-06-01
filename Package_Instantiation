@@ -4,7 +4,7 @@ BEGIN {
 }
 
 #require "array_function.pm";
-#require "ArrayFunc.pm";
+require "ArrayFunc.pm";
 my @array = (1,1,2,3,3,4,1);
 
 my @array_uniq = ArrayFunc->unify(\@array);
